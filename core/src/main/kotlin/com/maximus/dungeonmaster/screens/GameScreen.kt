@@ -6,8 +6,11 @@ import ktx.vis.table
 class GameScreen : BlankScreen() {
 
     override val view = table {
+        top()
+        left()
         setFillParent(true)
-        label("Game")
+
+        label("Game Screen")
     }
 
     override fun show() {}

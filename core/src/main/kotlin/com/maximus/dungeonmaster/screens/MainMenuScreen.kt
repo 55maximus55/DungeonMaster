@@ -1,20 +1,28 @@
 package com.maximus.dungeonmaster.screens
 
-import com.badlogic.gdx.Game
-import com.badlogic.gdx.utils.viewport.ExtendViewport
-import com.badlogic.gdx.utils.viewport.ScreenViewport
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.utils.I18NBundle
 import com.maximus.dungeonmaster.BlankScreen
 import com.maximus.dungeonmaster.Main
+import com.maximus.dungeonmaster.context
 import ktx.actors.onChange
 import ktx.vis.table
 
 class MainMenuScreen : BlankScreen() {
 
+    val strings: I18NBundle = context.inject<I18NBundle>()
+
     override val view = table {
         setFillParent(true)
-        textButton("New Game").apply {
+        textButton(strings["btn_NewGame"]).apply {
             onChange {
                 Main.setScreen<GameScreen>()
+            }
+        }
+        row()
+        textButton(strings["btn_Exit"]).apply {
+            onChange {
+                Gdx.app.exit()
             }
         }
     }

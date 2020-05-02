@@ -5,15 +5,15 @@ import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.I18NBundle
 import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.kotcrab.vis.ui.VisUI
-import com.maximus.dungeonmaster.screens.GameScreen
-import com.maximus.dungeonmaster.screens.MainMenuScreen
+import com.maximus.dungeonmaster.screens.*
 import ktx.app.KtxGame
 import ktx.inject.Context
 import ktx.scene2d.Scene2DSkin
+import java.util.*
 
 val context = Context()
 
-class Main : KtxGame<BlankScreen>() {
+class Main(val locale: Locale) : KtxGame<BlankScreen>() {
 
     companion object {
 
@@ -34,7 +34,7 @@ class Main : KtxGame<BlankScreen>() {
             VisUI.load()
             Scene2DSkin.defaultSkin = VisUI.getSkin()
 
-            bindSingleton(I18NBundle.createBundle(Gdx.files.internal("i18n/lines")))
+            bindSingleton(I18NBundle.createBundle(Gdx.files.internal("i18n/lines"), locale))
 
             bindSingleton(Stage(ScreenViewport()))
 
