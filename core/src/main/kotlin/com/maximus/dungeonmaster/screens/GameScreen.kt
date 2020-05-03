@@ -1,5 +1,7 @@
 package com.maximus.dungeonmaster.screens
 
+import com.badlogic.gdx.maps.tiled.TiledMap
+import com.badlogic.gdx.maps.tiled.TmxMapLoader
 import com.maximus.dungeonmaster.BlankScreen
 import ktx.vis.table
 
@@ -12,6 +14,8 @@ class GameScreen : BlankScreen() {
 
         label("Game Screen")
     }
+
+    val map: TiledMap = TmxMapLoader().load("maps/map1.tmx")
 
     override fun show() {}
     override fun hide() {}

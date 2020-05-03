@@ -10,7 +10,7 @@ import ktx.vis.table
 
 class MainMenuScreen : BlankScreen() {
 
-    val strings: I18NBundle = context.inject<I18NBundle>()
+    val strings: I18NBundle = context.inject()
 
     override val view = table {
         setFillParent(true)
