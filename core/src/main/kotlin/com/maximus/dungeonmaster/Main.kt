@@ -1,6 +1,8 @@
 package com.maximus.dungeonmaster
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.g2d.Batch
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.I18NBundle
 import com.badlogic.gdx.utils.viewport.ScreenViewport
@@ -16,13 +18,11 @@ val context = Context()
 class Main(val locale: Locale) : KtxGame<BlankScreen>() {
 
     companion object {
-
         lateinit var instance: Main
 
         inline fun  <reified Type : BlankScreen> setScreen() {
             instance.setScreen(Type::class.java)
         }
-
     }
 
     init {
@@ -33,10 +33,9 @@ class Main(val locale: Locale) : KtxGame<BlankScreen>() {
         context.register {
             VisUI.load()
             Scene2DSkin.defaultSkin = VisUI.getSkin()
-
+            bindSingleton<Batch>(SpriteBatch())
+            bindSingleton(Stage(ScreenViewport(), context.inject()))
             bindSingleton(I18NBundle.createBundle(Gdx.files.internal("i18n/lines"), locale))
-
-            bindSingleton(Stage(ScreenViewport()))
 
             bindSingleton(MainMenuScreen())
             bindSingleton(GameScreen())
