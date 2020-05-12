@@ -1,4 +1,4 @@
-package com.maximus.dungeonmaster.box2d
+package com.maximus.dungeonmaster.game.box2d
 
 import com.badlogic.ashley.core.Entity
 

@@ -6,10 +6,11 @@ import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.TmxMapLoader
 import com.badlogic.gdx.math.Vector2
 import com.maximus.dungeonmaster.BlankScreen
-import com.maximus.dungeonmaster.box2d.systems.Box2dWorldDebugRenderSystem
-import com.maximus.dungeonmaster.box2d.systems.Box2dWorldUpdateSystem
-import com.maximus.dungeonmaster.box2d.utils.Box2dWallsCreator
-import com.maximus.dungeonmaster.objects.PlayerEntity
+import com.maximus.dungeonmaster.game.box2d.systems.Box2dWorldDebugRenderSystem
+import com.maximus.dungeonmaster.game.box2d.systems.Box2dWorldUpdateSystem
+import com.maximus.dungeonmaster.game.box2d.utils.Box2dWallsCreator
+import com.maximus.dungeonmaster.game.camera.systems.CameraUpdatePositionSystem
+import com.maximus.dungeonmaster.game.transform.systems.UpdateTransformSystem
 import com.maximus.dungeonmaster.tiledmap.EntityCreatorFromTiledMap
 import com.maximus.dungeonmaster.tiledmap.OrthogonalTiledMapRenderSystem
 import ktx.ashley.add
@@ -47,6 +48,9 @@ class GameScreen : BlankScreen() {
 
             addSystem(OrthogonalTiledMapRenderSystem(map, camera))
             addSystem(Box2dWorldDebugRenderSystem(world, camera, PPM))
+
+            addSystem(UpdateTransformSystem(PPM))
+            addSystem(CameraUpdatePositionSystem(camera))
         }
     }
 

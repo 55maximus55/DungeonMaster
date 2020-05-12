@@ -1,4 +1,4 @@
-package com.maximus.dungeonmaster.box2d.systems
+package com.maximus.dungeonmaster.game.box2d.systems
 
 import com.badlogic.ashley.core.EntitySystem
 import com.badlogic.gdx.physics.box2d.World
