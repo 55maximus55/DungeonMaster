@@ -10,6 +10,7 @@ import com.maximus.dungeonmaster.box2d.systems.Box2dWorldDebugRenderSystem
 import com.maximus.dungeonmaster.box2d.systems.Box2dWorldUpdateSystem
 import com.maximus.dungeonmaster.box2d.utils.Box2dWallsCreator
 import com.maximus.dungeonmaster.objects.PlayerEntity
+import com.maximus.dungeonmaster.tiledmap.EntityCreatorFromTiledMap
 import com.maximus.dungeonmaster.tiledmap.OrthogonalTiledMapRenderSystem
 import ktx.ashley.add
 import ktx.box2d.createWorld
@@ -40,9 +41,10 @@ class GameScreen : BlankScreen() {
 
     init {
         Box2dWallsCreator.createWalls(engine, map, world)
-        PlayerEntity.create(engine, world, Vector2())
+        EntityCreatorFromTiledMap.createEntities(engine, world, map)
         engine.add {
             addSystem(Box2dWorldUpdateSystem(world))
+
             addSystem(OrthogonalTiledMapRenderSystem(map, camera))
             addSystem(Box2dWorldDebugRenderSystem(world, camera, PPM))
         }
