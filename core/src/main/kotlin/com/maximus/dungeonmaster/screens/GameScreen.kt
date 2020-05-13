@@ -10,9 +10,12 @@ import com.maximus.dungeonmaster.game.box2d.systems.Box2dWorldDebugRenderSystem
 import com.maximus.dungeonmaster.game.box2d.systems.Box2dWorldUpdateSystem
 import com.maximus.dungeonmaster.game.box2d.utils.Box2dWallsCreator
 import com.maximus.dungeonmaster.game.camera.systems.CameraUpdatePositionSystem
+import com.maximus.dungeonmaster.game.graphic.systems.DrawSpritesSystem
 import com.maximus.dungeonmaster.game.transform.systems.UpdateTransformSystem
-import com.maximus.dungeonmaster.tiledmap.EntityCreatorFromTiledMap
-import com.maximus.dungeonmaster.tiledmap.OrthogonalTiledMapRenderSystem
+import com.maximus.dungeonmaster.game.tiledmap.EntityCreatorFromTiledMap
+import com.maximus.dungeonmaster.game.graphic.systems.OrthogonalTiledMapRenderSystem
+import com.maximus.dungeonmaster.game.graphic.systems.UpdateAnimatedSpriteSystem
+import com.maximus.dungeonmaster.game.transform.systems.UpdateSpritePositionSystem
 import ktx.ashley.add
 import ktx.box2d.createWorld
 import ktx.tiled.tileHeight
@@ -46,11 +49,15 @@ class GameScreen : BlankScreen() {
         engine.add {
             addSystem(Box2dWorldUpdateSystem(world))
 
-            addSystem(OrthogonalTiledMapRenderSystem(map, camera))
-            addSystem(Box2dWorldDebugRenderSystem(world, camera, PPM))
-
             addSystem(UpdateTransformSystem(PPM))
+            addSystem(UpdateSpritePositionSystem())
+            addSystem(UpdateAnimatedSpriteSystem())
+
             addSystem(CameraUpdatePositionSystem(camera))
+
+            addSystem(OrthogonalTiledMapRenderSystem(map, camera))
+            addSystem(DrawSpritesSystem(camera))
+            addSystem(Box2dWorldDebugRenderSystem(world, camera, PPM))
         }
     }
 

@@ -1,4 +1,4 @@
-package com.maximus.dungeonmaster.tiledmap
+package com.maximus.dungeonmaster.game.graphic.systems
 
 import com.badlogic.ashley.core.EntitySystem
 import com.badlogic.gdx.graphics.OrthographicCamera

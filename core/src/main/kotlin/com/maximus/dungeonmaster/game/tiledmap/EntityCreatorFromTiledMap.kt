@@ -1,4 +1,4 @@
-package com.maximus.dungeonmaster.tiledmap
+package com.maximus.dungeonmaster.game.tiledmap
 
 import com.badlogic.ashley.core.Engine
 import com.badlogic.gdx.maps.tiled.TiledMap

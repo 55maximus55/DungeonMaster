@@ -2,12 +2,15 @@ package com.maximus.dungeonmaster.game.objects
 
 import com.badlogic.ashley.core.Engine
 import com.badlogic.ashley.core.Entity
+import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.physics.box2d.BodyDef
 import com.badlogic.gdx.physics.box2d.World
 import com.maximus.dungeonmaster.game.box2d.Box2dBodyData
 import com.maximus.dungeonmaster.game.box2d.components.Box2dBodyComponent
 import com.maximus.dungeonmaster.game.camera.components.CameraTargetComponent
+import com.maximus.dungeonmaster.game.graphic.components.AnimatedSpriteComponent
 import com.maximus.dungeonmaster.game.transform.components.TransformComponent
 import ktx.box2d.body
 
@@ -27,6 +30,7 @@ class PlayerEntity {
             }))
             entity.add(TransformComponent())
             entity.add(CameraTargetComponent())
+            entity.add(AnimatedSpriteComponent(Sprite(Texture("characters/player.png")), 0.6f, 48f, 48f))
         }
     }
 
