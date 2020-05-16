@@ -54,7 +54,6 @@ class GameScreen : BlankScreen() {
             addSystem(UpdateAnimatedSpriteSystem())
 
             addSystem(CameraUpdatePositionSystem(camera))
-
             addSystem(OrthogonalTiledMapRenderSystem(map, camera))
             addSystem(DrawSpritesSystem(camera))
             addSystem(Box2dWorldDebugRenderSystem(world, camera, PPM))

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="48" tileheight="48" infinite="0" nextlayerid="5" nextobjectid="17">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="48" tileheight="48" infinite="0" nextlayerid="8" nextobjectid="17">
  <tileset firstgid="1" name="beach" tilewidth="48" tileheight="48" tilecount="256" columns="16">
   <image source="tilesets/beach.png" width="768" height="768"/>
  </tileset>
@@ -159,9 +159,27 @@
  <tileset firstgid="11318" name="Outside_A5" tilewidth="48" tileheight="48" tilecount="128" columns="8">
   <image source="tilesets/Outside_A5.png" width="384" height="768"/>
  </tileset>
- <layer id="1" name="Слой тайлов 1" width="100" height="100">
+ <tileset firstgid="11446" name="TownRoad" tilewidth="48" tileheight="48" tilecount="36" columns="6">
+  <image source="tilesets/TownRoad.png" width="288" height="288"/>
+ </tileset>
+ <layer id="1" name="road" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt01EJACAUA8BXR+xhLxtoA6MqaAD/RLiDsQBjEQAAAAAAAAAAAAAAAAAAAAAAAMCtliL6Ce+NtUPJu3lvnG9UewAAAAAAAAAAAAAAAAAAAAAAAACfm+xrBl4=
+   eJzt17ENwjAQBVBXYYMwA4Yl2QA2YArGYgYSQeRISUwTbBfvSSc3ru7rznIIAAAAAAAAAAAAAAAAAAAAAMCeurhdz0uq3D32I4+25DLYKnn8jzzaIo+25Pp+O4Vw/1buHvvJ9fkx5PA6f055lPErj3E2rvIoZtz/h5hO70dd/dDPY0ynPOrqZrNhPurr43Jnre0u//My5vMx7ay1WZFHGX1cviFTyQMAAAAAAAAAAAAAAAAAAAAA6nkDMByAFQ==
+  </data>
+ </layer>
+ <layer id="6" name="border1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1bEJQCEMQEEHyv5z/Ebn+YWVlV0S4Q6CrfggjgEAAAAAAAAAAAAAAAAAAAAAZJmxzy9q78GmR715eXttetGjFz2AKivO4S3+j170yHXbXXrU06AXPXrRAwAAAAAAAAAAAAAAAAAAAADy/cXbFOY=
+  </data>
+ </layer>
+ <layer id="7" name="border2" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1TEKwCAQBEAf5P+/kSq+J2WSIiCC3EJm4BrhGhfX1gAAAAAAAAAAAAAAAAAAAAAAoMbR75k5Z6/TfUeRR61nD8120coO/MXo72Ef/0cWeWT5ykM/1fNWssgjizwAAAAAAAAAAAAAAAAAAAAAoM4FLJAc0Q==
+  </data>
+ </layer>
+ <layer id="5" name="border corner" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1CEOgDAMQNEeaPffDBgw26kwEOomWcJ7qqlufwQAAAAAAAAAAAAAAAAAAAAAAHzjKO9c77ml3VkCYAl10qOmV/zYNrn/3X8Ai+ipR0+7cqOGXgEAAAAAAAAAAAAAAAAAAAAAAMkFqh0K/w==
   </data>
  </layer>
  <layer id="4" name="objects" width="100" height="100">
