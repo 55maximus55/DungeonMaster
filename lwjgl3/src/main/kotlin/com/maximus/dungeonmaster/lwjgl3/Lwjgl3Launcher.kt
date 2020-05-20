@@ -25,7 +25,7 @@ private fun getConfiguration(args: Array<String>): Lwjgl3ApplicationConfiguratio
             borderless = true
             val displayMode = Lwjgl3ApplicationConfiguration.getDisplayMode()
             width = displayMode.width
-            height = displayMode.width
+            height = displayMode.height
         }
     }
 
