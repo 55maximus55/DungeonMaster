@@ -12,6 +12,9 @@ import com.maximus.dungeonmaster.game.box2d.components.Box2dBodyComponent
 import com.maximus.dungeonmaster.game.camera.components.CameraTargetComponent
 import com.maximus.dungeonmaster.game.graphic.components.AnimatedSpriteComponent
 import com.maximus.dungeonmaster.game.hp.HpComponent
+import com.maximus.dungeonmaster.game.movement.MovementComponent
+import com.maximus.dungeonmaster.game.movement.PlayerControllerComponent
+import com.maximus.dungeonmaster.game.movement.SpeedComponent
 import com.maximus.dungeonmaster.game.transform.components.TransformComponent
 import ktx.box2d.body
 
@@ -27,12 +30,15 @@ class PlayerEntity {
                 userData = Box2dBodyData(entity)
 
                 position.set(pos)
-                box(width = 0.99f, height = 0.99f)
+                circle(radius = 0.99f / 2f)
             }))
             entity.add(TransformComponent())
             entity.add(CameraTargetComponent())
             entity.add(AnimatedSpriteComponent(Sprite(Texture("characters/player.png")), 0.6f, 48f, 48f))
             entity.add(HpComponent())
+            entity.add(SpeedComponent(5f))
+            entity.add(PlayerControllerComponent())
+            entity.add(MovementComponent())
         }
     }
 

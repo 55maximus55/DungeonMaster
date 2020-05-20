@@ -16,6 +16,8 @@ import com.maximus.dungeonmaster.game.tiledmap.EntityCreatorFromTiledMap
 import com.maximus.dungeonmaster.game.graphic.systems.OrthogonalTiledMapRenderSystem
 import com.maximus.dungeonmaster.game.graphic.systems.UpdateAnimatedSpriteSystem
 import com.maximus.dungeonmaster.game.hp.DrawHpBarSystem
+import com.maximus.dungeonmaster.game.movement.MovementSystem
+import com.maximus.dungeonmaster.game.movement.PlayerControllerSystem
 import com.maximus.dungeonmaster.game.transform.systems.UpdateSpritePositionSystem
 import ktx.ashley.add
 import ktx.box2d.createWorld
@@ -42,12 +44,14 @@ class GameScreen : BlankScreen() {
     val map: TiledMap = TmxMapLoader().load("maps/map1.tmx")
     val PPM = map.tileHeight.toFloat()
     val world = createWorld(Vector2(0f, 0f))
-    val fov = 48f * 16
+    val fov = 48f * 9
 
     init {
         Box2dWallsCreator.createWalls(engine, map, world)
         EntityCreatorFromTiledMap.createEntities(engine, world, map)
         engine.add {
+            addSystem(PlayerControllerSystem())
+            addSystem(MovementSystem())
             addSystem(Box2dWorldUpdateSystem(world))
 
             addSystem(UpdateTransformSystem(PPM))
