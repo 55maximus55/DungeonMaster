@@ -5,7 +5,6 @@ import com.badlogic.ashley.core.Entity
 import com.badlogic.ashley.core.EntitySystem
 import com.badlogic.ashley.utils.ImmutableArray
 import com.badlogic.gdx.graphics.OrthographicCamera
-import com.maximus.dungeonmaster.game.box2d.components.Box2dBodyComponent
 import com.maximus.dungeonmaster.game.camera.components.CameraTargetComponent
 import com.maximus.dungeonmaster.game.transform.components.TransformComponent
 import ktx.ashley.allOf

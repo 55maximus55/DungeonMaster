@@ -1,4 +1,4 @@
-package com.maximus.dungeonmaster.game.objects
+package com.maximus.dungeonmaster.game.entities
 
 import com.badlogic.ashley.core.Engine
 import com.badlogic.ashley.core.Entity
@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.physics.box2d.BodyDef
 import com.badlogic.gdx.physics.box2d.World
+import com.maximus.dungeonmaster.game.NameComponent
 import com.maximus.dungeonmaster.game.box2d.Box2dBodyData
 import com.maximus.dungeonmaster.game.box2d.components.Box2dBodyComponent
 import com.maximus.dungeonmaster.game.camera.components.CameraTargetComponent
@@ -39,6 +40,7 @@ class PlayerEntity {
             entity.add(SpeedComponent(5f))
             entity.add(PlayerControllerComponent())
             entity.add(MovementComponent())
+            entity.add(NameComponent("player"))
         }
     }
 
