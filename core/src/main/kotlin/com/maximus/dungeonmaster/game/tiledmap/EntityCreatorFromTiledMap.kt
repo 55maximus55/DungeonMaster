@@ -4,7 +4,7 @@ import com.badlogic.ashley.core.Engine
 import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.physics.box2d.World
-import com.maximus.dungeonmaster.game.objects.PlayerEntity
+import com.maximus.dungeonmaster.game.entities.PlayerEntity
 import ktx.tiled.*
 
 class EntityCreatorFromTiledMap {
