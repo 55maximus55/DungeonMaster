@@ -15,6 +15,7 @@ import com.maximus.dungeonmaster.game.transform.systems.UpdateTransformSystem
 import com.maximus.dungeonmaster.game.tiledmap.EntityCreatorFromTiledMap
 import com.maximus.dungeonmaster.game.graphic.systems.OrthogonalTiledMapRenderSystem
 import com.maximus.dungeonmaster.game.graphic.systems.UpdateAnimatedSpriteSystem
+import com.maximus.dungeonmaster.game.hp.DrawHpBarSystem
 import com.maximus.dungeonmaster.game.transform.systems.UpdateSpritePositionSystem
 import ktx.ashley.add
 import ktx.box2d.createWorld
@@ -56,6 +57,7 @@ class GameScreen : BlankScreen() {
             addSystem(CameraUpdatePositionSystem(camera))
             addSystem(OrthogonalTiledMapRenderSystem(map, camera))
             addSystem(DrawSpritesSystem(camera))
+            addSystem(DrawHpBarSystem(camera))
             addSystem(Box2dWorldDebugRenderSystem(world, camera, PPM))
         }
     }

@@ -3,6 +3,7 @@ package com.maximus.dungeonmaster
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.I18NBundle
 import com.badlogic.gdx.utils.viewport.ScreenViewport
@@ -34,6 +35,7 @@ class Main(val locale: Locale) : KtxGame<BlankScreen>() {
             VisUI.load()
             Scene2DSkin.defaultSkin = VisUI.getSkin()
             bindSingleton<Batch>(SpriteBatch())
+            bindSingleton(ShapeRenderer())
             bindSingleton(Stage(ScreenViewport(), context.inject()))
             bindSingleton(I18NBundle.createBundle(Gdx.files.internal("i18n/lines"), locale))
 
