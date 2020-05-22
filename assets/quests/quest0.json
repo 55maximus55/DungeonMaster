@@ -1,0 +1,30 @@
+{
+  "name": "Я попал в другой мир",
+  "description": "Мне нужна работа чтобы выжить, стоит поискать гильдию",
+  "tasks": [
+    {
+      "name": "Найти гильдию",
+      "completed": false,
+      "failed": false,
+      "unlocked": true
+    },
+    {
+      "name": "Подойти к стойке регистрации",
+      "completed": false,
+      "failed": false,
+      "unlocked": false
+    },
+    {
+      "name": "Найти деньги для оплаты регистрационного взноса",
+      "completed": false,
+      "failed": false,
+      "unlocked": false
+    },
+    {
+      "name": "Вступить в гильдию",
+      "completed": false,
+      "failed": false,
+      "unlocked": false
+    }
+  ]
+}

@@ -11,14 +11,16 @@ import com.maximus.dungeonmaster.game.box2d.systems.Box2dWorldUpdateSystem
 import com.maximus.dungeonmaster.game.box2d.utils.Box2dWallsCreator
 import com.maximus.dungeonmaster.game.camera.systems.CameraUpdatePositionSystem
 import com.maximus.dungeonmaster.game.graphic.systems.DrawSpritesSystem
-import com.maximus.dungeonmaster.game.transform.systems.UpdateTransformSystem
-import com.maximus.dungeonmaster.game.tiledmap.EntityCreatorFromTiledMap
 import com.maximus.dungeonmaster.game.graphic.systems.OrthogonalTiledMapRenderSystem
 import com.maximus.dungeonmaster.game.graphic.systems.UpdateAnimatedSpriteSystem
 import com.maximus.dungeonmaster.game.hp.DrawHpBarSystem
 import com.maximus.dungeonmaster.game.movement.MovementSystem
 import com.maximus.dungeonmaster.game.movement.PlayerControllerSystem
+import com.maximus.dungeonmaster.game.quests.QuestSystem
+import com.maximus.dungeonmaster.game.quests.QuestUpdateUISystem
+import com.maximus.dungeonmaster.game.tiledmap.EntityCreatorFromTiledMap
 import com.maximus.dungeonmaster.game.transform.systems.UpdateSpritePositionSystem
+import com.maximus.dungeonmaster.game.transform.systems.UpdateTransformSystem
 import ktx.ashley.add
 import ktx.box2d.createWorld
 import ktx.tiled.tileHeight
@@ -28,7 +30,7 @@ class GameScreen : BlankScreen() {
 
     override val view = table {
         top()
-        left()
+        right()
         setFillParent(true)
 
         label("Game Screen")
@@ -46,6 +48,8 @@ class GameScreen : BlankScreen() {
     val world = createWorld(Vector2(0f, 0f))
     val fov = 48f * 9
 
+    val questSystem = QuestSystem()
+
     init {
         Box2dWallsCreator.createWalls(engine, map, world)
         EntityCreatorFromTiledMap.createEntities(engine, world, map)
@@ -57,6 +61,8 @@ class GameScreen : BlankScreen() {
             addSystem(UpdateTransformSystem(PPM))
             addSystem(UpdateSpritePositionSystem())
             addSystem(UpdateAnimatedSpriteSystem())
+
+            addSystem(QuestUpdateUISystem(view, questSystem))
 
             addSystem(CameraUpdatePositionSystem(camera))
             addSystem(OrthogonalTiledMapRenderSystem(map, camera))
