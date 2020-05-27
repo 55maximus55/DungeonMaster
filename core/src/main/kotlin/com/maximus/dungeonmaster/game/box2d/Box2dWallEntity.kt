@@ -5,6 +5,7 @@ import com.badlogic.ashley.core.Entity
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.physics.box2d.BodyDef
 import com.badlogic.gdx.physics.box2d.World
+import com.maximus.dungeonmaster.game.NameComponent
 import com.maximus.dungeonmaster.game.box2d.components.Box2dBodyComponent
 import ktx.box2d.body
 
@@ -23,6 +24,7 @@ class Box2dWallEntity {
                 box(width = size.x, height = size.y)
             }
             entity.add(Box2dBodyComponent(body))
+            entity.add(NameComponent("wall"))
         }
     }
 

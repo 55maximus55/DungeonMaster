@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.TmxMapLoader
 import com.badlogic.gdx.math.Vector2
 import com.maximus.dungeonmaster.BlankScreen
+import com.maximus.dungeonmaster.game.box2d.Box2dWorldContactListener
 import com.maximus.dungeonmaster.game.box2d.systems.Box2dWorldDebugRenderSystem
 import com.maximus.dungeonmaster.game.box2d.systems.Box2dWorldUpdateSystem
 import com.maximus.dungeonmaster.game.box2d.utils.Box2dWallsCreator
@@ -18,6 +19,7 @@ import com.maximus.dungeonmaster.game.movement.MovementSystem
 import com.maximus.dungeonmaster.game.movement.PlayerControllerSystem
 import com.maximus.dungeonmaster.game.quests.QuestSystem
 import com.maximus.dungeonmaster.game.quests.QuestUpdateUISystem
+import com.maximus.dungeonmaster.game.quests.triggertargets.TriggerTartgets
 import com.maximus.dungeonmaster.game.tiledmap.EntityCreatorFromTiledMap
 import com.maximus.dungeonmaster.game.transform.systems.UpdateSpritePositionSystem
 import com.maximus.dungeonmaster.game.transform.systems.UpdateTransformSystem
@@ -49,6 +51,7 @@ class GameScreen : BlankScreen() {
     val fov = 48f * 9
 
     val questSystem = QuestSystem()
+    val triggerTartgets = TriggerTartgets(questSystem)
 
     init {
         Box2dWallsCreator.createWalls(engine, map, world)
@@ -70,6 +73,7 @@ class GameScreen : BlankScreen() {
             addSystem(DrawHpBarSystem(camera))
             addSystem(Box2dWorldDebugRenderSystem(world, camera, PPM))
         }
+        world.setContactListener(Box2dWorldContactListener(triggerTartgets))
     }
 
     override fun resize(width: Int, height: Int) {

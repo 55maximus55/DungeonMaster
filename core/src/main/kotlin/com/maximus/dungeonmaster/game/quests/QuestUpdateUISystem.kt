@@ -1,6 +1,7 @@
 package com.maximus.dungeonmaster.game.quests
 
 import com.badlogic.ashley.core.EntitySystem
+import com.badlogic.gdx.graphics.Color
 import com.kotcrab.vis.ui.widget.VisLabel
 import com.kotcrab.vis.ui.widget.VisTable
 
@@ -15,7 +16,10 @@ class QuestUpdateUISystem(val table: VisTable, var questSystem: QuestSystem) : E
                 for (i in quest.tasks) {
                     if (i.unlocked) {
                         row()
-                        add(VisLabel("Task: ${i.name}"))
+                        add(VisLabel("Task: ${i.name}").apply {
+                            if (i.failed) color = Color.RED
+                            else if (i.completed) color = Color.GREEN
+                        })
                     }
                 }
             }

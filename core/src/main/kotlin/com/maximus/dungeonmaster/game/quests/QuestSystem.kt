@@ -13,6 +13,12 @@ class QuestSystem {
         for (file in files) {
             quests.add(QuestParser.load(file))
         }
+        for (i in quests) {
+            if (i.unlocked) {
+                currentQuest = i
+                break
+            }
+        }
     }
 
 }

@@ -17,15 +17,14 @@ class QuestParser {
             val quest = Quest()
 
             quest.name = jsonQuest.getString("name")
-            quest.description = jsonQuest.getString("description")
+            quest.unlocked = jsonQuest.getBoolean("unlocked")
+            quest.id = fileHandle!!.nameWithoutExtension()
 
             for (i in 0 until jsonQuest.get("tasks").size) {
                 val task = Task()
                 val jsonTask = jsonQuest.get("tasks")[i]
 
                 task.name = jsonTask.getString("name")
-                task.completed = jsonTask.getBoolean("completed")
-                task.failed = jsonTask.getBoolean("failed")
                 task.unlocked = jsonTask.getBoolean("unlocked")
 
                 quest.tasks.add(task)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="48" tileheight="48" infinite="0" nextlayerid="8" nextobjectid="17">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="48" tileheight="48" infinite="0" nextlayerid="8" nextobjectid="19">
  <tileset firstgid="1" name="beach" tilewidth="48" tileheight="48" tilecount="256" columns="16">
   <image source="tilesets/beach.png" width="768" height="768"/>
  </tileset>
@@ -184,7 +184,7 @@
  </layer>
  <layer id="4" name="objects" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0bEJADAIAEEL99/BEbJhWltBsLmb4OEjAAAAAAAAAAAAAAAAAAAAAAAAgInK6wK65wcAAAAAAAAAAAAAAAAAAAAAAAAAyz5PVAFb
+   eJzt0bEJACAMAMEUaQT37zOCG9pmACEWdxM8fAQAAAAAAAAAAAAAAAAAAPC7tacLAAAAgK5yuoDu+AEAAAAAAAAAAAAAAAAAAAAAAADAYxczCAFw
   </data>
  </layer>
  <objectgroup id="2" name="walls">
@@ -194,5 +194,6 @@
   <object id="14" name="player" type="entity" x="2376" y="2496">
    <point/>
   </object>
+  <object id="17" name="trigger" type="quest0_task0" x="2208" y="1824" width="48" height="48"/>
  </objectgroup>
 </map>
